@@ -21,27 +21,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RosterActivity extends AppCompatActivity {
-    private RosterListViewModel vm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityRosterBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_roster);
-        vm = ViewModelProviders.of(this).get(RosterListViewModel.class);
+        RosterListViewModel vm = new RosterListViewModel();
+        binding.setVmRoster(vm);
+        //vm = ViewModelProviders.of(this).get(RosterListViewModel.class);
         //vm.onFirstLoad((FlightInfoApplication)getApplication());
 
         List<Roster> rosters =  new ArrayList<>();
-        Roster roster = new Roster(100,"TR237","12:30","18:00","waiting","waiting","standard");
-        rosters.add(roster);
+        //Roster roster = new Roster(100,"TR237","12:30","18:00","waiting","waiting","standard");
+        //rosters.add(roster);
         SimpleAdapter<Roster> adapter = new SimpleAdapter<Roster>(rosters,R.layout.layout_roster_item, BR.data);
         binding.rv.setAdapter(adapter);
-        //vm.onFirstLoad((FlightInfoApplication) getApplication());
+        vm.onFirstLoad((FlightInfoApplication) getApplication());
     }
 
     @BindingAdapter({"onRefresh"})
     public static void onRefresh(RecyclerView view, List<Roster> data) {
         SimpleAdapter<Roster> adapter = (SimpleAdapter<Roster>) view.getAdapter();
-        android.util.Log.d("RosterActivity","--------------------------------onRefresh,count:");
-        if (data!=null)
-           adapter.refreshData(data);
+
+        if (data!=null && data.size()>0) {
+            android.util.Log.d("RosterActivity","--------------------------------onRefresh,size"+data.size());
+            adapter.refreshData(data);
+        }
     }
 }

@@ -2,14 +2,10 @@ package com.qxm.flightinfo.viewmodel;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.databinding.ObservableField;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.qxm.flightinfo.BR;
 import com.qxm.flightinfo.FlightInfoApplication;
 import com.qxm.flightinfo.model.FlightDetail;
-import com.qxm.flightinfo.model.User;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;

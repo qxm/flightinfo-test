@@ -5,7 +5,7 @@
     <data>
 
         <variable
-            name="vm"
+            name="vmRoster"
             type="com.qxm.flightinfo.viewmodel.RosterListViewModel" />
 
     </data>
@@ -14,7 +14,7 @@
         android:id="@+id/srl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:onRefreshListener="@{()->vm.onRefresh()}"
+        app:onRefreshListener="@{()->vmRoster.onRefresh()}"
 
         tools:context=".activity.RosterActivity">
 
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:onRefresh="@{vm.rosterList}"
+            app:onRefresh="@{vmRoster.rosterList}"
 
             />
 
