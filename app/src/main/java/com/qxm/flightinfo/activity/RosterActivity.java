@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -33,11 +34,14 @@ public class RosterActivity extends AppCompatActivity {
         rosters.add(roster);
         SimpleAdapter<Roster> adapter = new SimpleAdapter<Roster>(rosters,R.layout.layout_roster_item, BR.data);
         binding.rv.setAdapter(adapter);
-        vm.onFirstLoad((FlightInfoApplication) getApplication());
+        //vm.onFirstLoad((FlightInfoApplication) getApplication());
     }
 
     @BindingAdapter({"onRefresh"})
-    public static void onRefresh(View view, int count) {
-        android.util.Log.d("RosterActivity","--------------------------------onRefresh,count:"+count);
+    public static void onRefresh(RecyclerView view, List<Roster> data) {
+        SimpleAdapter<Roster> adapter = (SimpleAdapter<Roster>) view.getAdapter();
+        android.util.Log.d("RosterActivity","--------------------------------onRefresh,count:");
+        if (data!=null)
+           adapter.refreshData(data);
     }
 }

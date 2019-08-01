@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:onRefreshListener="@{()->vm.onRefresh()}"
-        app:onRefresh="@{vm.refreshCount}"
+
         tools:context=".activity.RosterActivity">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -23,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:items = "@{vm.rosterList}"
+            app:onRefresh="@{vm.rosterList}"
+
             />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
