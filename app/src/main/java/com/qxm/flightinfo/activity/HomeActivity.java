@@ -1,6 +1,5 @@
 package com.qxm.flightinfo.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,8 +16,19 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onUserProfileClick(View view) {
-        Context context = view.getContext();
-        Intent intent = new Intent(context, UserProfileActivity.class);
-        context.startActivity(intent);
+        Intent intent = new Intent(this, UserProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void onFlightDetailsClick(View view) {
+
+        Intent intent = new Intent(this, FlightDetailActivity.class);
+        startActivity(intent);
+    }
+
+    public void onRostersClick(View view) {
+
+        Intent intent = new Intent(this, RosterActivity.class);
+        startActivity(intent);
     }
 }

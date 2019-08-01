@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.qxm.flightinfo.model.Roster" />
+
+        <variable
+            name="viewModel"
+            type="com.qxm.flightinfo.viewmodel.FlightDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="100dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="100dp" />
+
+        <TextView
+            android:id="@+id/flightNo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text = "@{data.flightNo}"
+            app:layout_constraintBottom_toTopOf="@id/deptTime"
+            app:layout_constraintLeft_toLeftOf="@id/guideline1"
+            app:layout_constraintRight_toRightOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:id="@+id/deptTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text = "@{data.deptTime}"
+
+            app:layout_constraintBottom_toTopOf="@id/arriveTime"
+            app:layout_constraintLeft_toLeftOf="@id/guideline1"
+            app:layout_constraintRight_toRightOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/flightNo" />
+
+        <TextView
+            android:id="@+id/arriveTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text = "@{data.arriveTime}"
+
+            app:layout_constraintBottom_toTopOf="@id/actDeptTime"
+            app:layout_constraintLeft_toLeftOf="@id/guideline1"
+            app:layout_constraintRight_toRightOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/deptTime" />
+
+        <TextView
+            android:id="@+id/actDeptTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text = "@{data.deptStatus}"
+
+            app:layout_constraintBottom_toTopOf="@id/actArrTime"
+            app:layout_constraintLeft_toLeftOf="@id/guideline1"
+            app:layout_constraintRight_toRightOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/deptTime" />
+
+        <TextView
+            android:id="@+id/actArrTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text = "@{data.arrStatus}"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/guideline1"
+            app:layout_constraintRight_toRightOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/actDeptTime" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.qxm.flightinfo.viewmodel.FlightDetailViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline1"
@@ -32,49 +38,61 @@
 
 
 
-        <Button
-            android:id="@+id/userProfile"
+        <TextView
+            android:id="@+id/flightNo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="User Profile"
-            android:onClick="onUserProfileClick"
-            app:layout_constraintBottom_toTopOf="@id/flightDetails"
+            android:text = "@{viewModel.flightDetail.flightNo}"
+            app:layout_constraintBottom_toTopOf="@id/deptTime"
             app:layout_constraintLeft_toLeftOf="@id/guideline1"
             app:layout_constraintRight_toRightOf="@id/guideline2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread" />
 
-        <Button
-            android:id="@+id/flightDetails"
+        <TextView
+            android:id="@+id/deptTime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Flight Details"
-            android:onClick="onFlightDetailsClick"
-            app:layout_constraintBottom_toTopOf="@id/rosters"
+            android:text = "@{viewModel.flightDetail.deptTime}"
+
+            app:layout_constraintBottom_toTopOf="@id/arriveTime"
             app:layout_constraintLeft_toLeftOf="@id/guideline1"
             app:layout_constraintRight_toRightOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/userProfile" />
+            app:layout_constraintTop_toBottomOf="@id/flightNo" />
 
-        <Button
-            android:id="@+id/rosters"
+        <TextView
+            android:id="@+id/arriveTime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Rosters"
-            android:onClick="onRostersClick"
-            app:layout_constraintBottom_toTopOf="@id/notifications"
+            android:text = "@{viewModel.flightDetail.arriveTime}"
+
+            app:layout_constraintBottom_toTopOf="@id/actDeptTime"
             app:layout_constraintLeft_toLeftOf="@id/guideline1"
             app:layout_constraintRight_toRightOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/flightDetails" />
+            app:layout_constraintTop_toBottomOf="@id/deptTime" />
 
-        <Button
-            android:id="@+id/notifications"
+        <TextView
+            android:id="@+id/actDeptTime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Notifications"
+            android:text = "@{viewModel.flightDetail.actDeptTime}"
+
+            app:layout_constraintBottom_toTopOf="@id/actArrTime"
+            app:layout_constraintLeft_toLeftOf="@id/guideline1"
+            app:layout_constraintRight_toRightOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/deptTime" />
+
+        <TextView
+            android:id="@+id/actArrTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text = "@{viewModel.flightDetail.actArrTime}"
+
             app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintLeft_toLeftOf="@id/guideline1"
             app:layout_constraintRight_toRightOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/rosters" />
+            app:layout_constraintTop_toBottomOf="@id/actDeptTime" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+</layout>
 

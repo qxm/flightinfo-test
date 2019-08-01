@@ -29,6 +29,11 @@ public class FlightInfoApplication extends Application {
         @Override
         public void migrate(SupportSQLiteDatabase database) {
             database.execSQL("insert into  User values(1,'bob','Bob','123456','bob@bb.com')");
+            android.util.Log.d("database","---------------------------");
+            database.execSQL("insert into  FlightDetail values(1,'SQ238','09:35','15:25','09:35','15:25','09:46','15:05')");
+            database.execSQL("insert into  Roster values(1,'SQ238','09:35','15:25','taken off','landed','standard')");
+            database.execSQL("insert into  Roster values(2,'AM111','10:35','16:15','taken off','landed','standard')");
+            database.execSQL("insert into  Roster values(3,'SK877','11:35','17:05','taken off','landed','standard')");
         }
     };
 }

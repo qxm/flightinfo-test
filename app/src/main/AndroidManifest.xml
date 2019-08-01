@@ -10,9 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
-        <activity android:name=".activity.UserProfileActivity"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.RosterActivity"></activity>
+        <activity android:name=".activity.FlightDetailActivity" />
+        <activity android:name=".activity.UserProfileActivity" />
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
