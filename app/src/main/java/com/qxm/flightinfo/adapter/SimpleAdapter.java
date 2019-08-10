@@ -25,7 +25,6 @@ public class SimpleAdapter<T> extends RecyclerView.Adapter<ViewHolder>{
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        android.util.Log.d("ViewHolder","---------------------------------onCreateViewHolder");
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ViewDataBinding binding = DataBindingUtil.inflate(inflater, layoutId, parent, false);
         ViewHolder viewHolder = new ViewHolder(binding.getRoot());
@@ -35,7 +34,6 @@ public class SimpleAdapter<T> extends RecyclerView.Adapter<ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        android.util.Log.d("ViewHolder","---------------------------------onBindViewHolder");
         holder.getBinding().setVariable(brId,mDatas.get(position));
         holder.getBinding().executePendingBindings();
     }
@@ -46,7 +44,6 @@ public class SimpleAdapter<T> extends RecyclerView.Adapter<ViewHolder>{
     }
 
     public void refreshData(List<T> data) {
-        android.util.Log.d("ViewHolder","---------------------------------rereshData");
         mDatas.clear();
         mDatas.addAll(data);
         notifyDataSetChanged();
